@@ -1,0 +1,10 @@
+.App::after {
+    clear: both;
+}
+.content {
+    padding: 30px;
+}
+.footerComp{
+    background: cornflowerblue;
+    padding: 20px ;
+}
