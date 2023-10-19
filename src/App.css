@@ -1,10 +1,17 @@
 .App::after {
     clear: both;
 }
-.content {
-    padding: 30px;
+*{
+    margin: 0;
+}
+.content{
+    margin-top: 20px;
 }
 .footerComp{
     background: cornflowerblue;
     padding: 20px ;
+}
+.wrap-content{
+    width: 1200px;
+    margin: 0 auto;
 }
