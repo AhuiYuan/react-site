@@ -1,8 +1,10 @@
-import React from "react";
-import {Row,Col,Card} from 'antd'
+import React, {useState} from "react";
+import {Row,Col,Card,Button} from 'antd'
+import {Tooltip} from "antd";
 
 /*组件*/
 import Carousel from "../component/carousel";
+import HProCarousel from "../component/HproCarousel";
 
 const cardItems=[
     {
@@ -22,8 +24,8 @@ const cardItems=[
     }
 ]
 const ListItems=()=>{
-    const listItems = cardItems.map(cardItems =>
-        <Col span={8}>
+    const listItems = cardItems.map((cardItems,key) =>
+        <Col span={8} key={key}>
             <Card>
                 <div>
                     <img src={cardItems.img} alt=""/>
@@ -40,50 +42,129 @@ const ListItems=()=>{
 }
 
 
+const Item=()=>{
+    const data = [
+        { title: "Title 1", content: "Content 1" },
+        { title: "Title 2", content: "Content 2" },
+        { title: "Title 3", content: "Content 3" },
+    ];
+    const [activeIndex, setActiveIndex] = useState(-1);
+    return <div className='ant-card'>
+        <div className="pro-category-list" onMouseLeave={() => setActiveIndex(-1)}>
+            <a className="allBtn">PRODUCTS <span>View All</span></a>
+            {data.map((item, index) => (
+                <React.Fragment key={index}>
+                    <dl className={activeIndex===index?"active":''}>
+                        <dt
+                            onMouseEnter={() => setActiveIndex(index)}
+                        >
+                            <a href="">{item.title}</a>
+                        </dt>
+                    </dl>
+                    {activeIndex === index && (
+                        <dd onMouseLeave={() => setActiveIndex(-1)}>
+                            <ul>
+                                <li><a>{item.content}</a></li>
+                            </ul>
+                        </dd>
+                    )}
+                </React.Fragment>
+            ))}
+        </div>
+    </div>
+}
+
+
+
+
 
 const App:React.FC=()=>{
     return (
-        <div className="wrap-content">
-            <Row>
-                <Col span={5}>
-                    <div className="pro-category-list" >
-                        <a className="allBtn">PRODUCTS <span>View All</span></a>
-                        <dl>
-                            <dt >
-                                <a>1231321</a>
-                            </dt>
-                        </dl>
-                        <dl>
-                            <dt >
-                                <a>1231321</a>
-                            </dt>
-                        </dl>
-                        <dl>
-                            <dt >
-                                <a>1231321</a>
-                            </dt>
-                        </dl>
-                        <dl>
-                            <dt >
-                                <a>1231321</a>
-                            </dt>
-                        </dl>
-                        <dd style={{display:'none' }}>
-                            <ul>
-                                <li><a>qeqeqwew</a></li>
-                            </ul>
-                        </dd>
-                    </div>
-                </Col>
-                <Col span={19}>
-                    <Carousel/>
-                </Col>
-            </Row>
-            <div className="cardList">
-                <ListItems/>
+        <div className='homePage'>
+            <div className="wrap-content">
+                <Row>
+                    <Col span={5} className='pro-categorize-list'>
+                        <Item></Item>
+                    </Col>
+                    <Col span={19}>
+                        <Carousel/>
+                    </Col>
+                </Row>
+                <div className="cardList">
+                    <ListItems/>
+                </div>
+                <div className="HProCarousel">
+                    <h2>Trending Products</h2>
+                    <HProCarousel/>
+                </div>
+                <div className='brandList'>
+                    <h2>Featured Manufacturers</h2>
+                    <Row gutter={20} justify="center">
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
+                    </Row>
+                </div>
+                <div className='cardItem'>
+                    <Row gutter={40}>
+                        <Col span={12} key={0}>
+                            <Card>
+                                <b>Component Shortage?</b>
+                                <p>With a large in-stock inventory and extensive market contacts, in most cases when your suppliers are unable to provide the components you need for your project, we can.</p>
+                                <Button size={"large"} >Get Quote </Button>
+                            </Card>
+                        </Col>
+                        <Col span={12} key={0}>
+                            <Card>
+                                <b>Component Shortage?</b>
+                                <p>With a large in-stock inventory and extensive market contacts, in most cases when your suppliers are unable to provide the components you need for your project, we can.</p>
+                                <Button size={"large"} >Register Now</Button>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
             </div>
-
+            <div className='pro-systematics'>
+                <div className='wrap-content'>
+                    <Row gutter={20} justify="center">
+                        <Col span={3}>
+                            <img src="/img/type01.png" alt=""/>
+                            <p>Potentiometers</p>
+                        </Col>
+                        <Col span={3}>
+                            <img src="/img/type02.png" alt=""/>
+                            <p>Potentiometers</p>
+                        </Col>
+                        <Col span={3}>
+                            <img src="/img/type03.png" alt=""/>
+                            <p>Potentiometers</p>
+                        </Col>
+                        <Col span={3}>
+                            <img src="/img/type04.png" alt=""/>
+                            <p>Potentiometers</p>
+                        </Col>
+                        <Col span={3}>
+                            <img src="/img/type05.png" alt=""/>
+                            <p>Potentiometers</p>
+                        </Col>
+                        <Col span={3}>
+                            <img src="/img/type06.png" alt=""/>
+                            <p>Potentiometers</p>
+                        </Col>
+                        <Col span={3}>
+                            <img src="/img/type07.png" alt=""/>
+                            <p>Potentiometers</p>
+                        </Col>
+                    </Row>
+                </div>
+            </div>
         </div>
+
     )
 }
 

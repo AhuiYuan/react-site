@@ -45,7 +45,7 @@ const App: React.FC = () => {
         setCurrent(e.key);
     };
     return (
-        <Menu onClick={onClick} selectedKeys={[location.pathname]} mode="horizontal" items={items} style={{borderBottom:"none",background:"none"}}/>
+        <Menu theme="dark" onClick={onClick} selectedKeys={[location.pathname]} mode="horizontal" items={items} style={{borderBottom:"none",background:"none"}}/>
     )
 };
 

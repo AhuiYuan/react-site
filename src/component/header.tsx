@@ -25,11 +25,11 @@ const App: React.FC = () => {
                 <div className="login">
                     <UserOutlined style={{fontSize:"20px"}} /> <b>Login & Register</b>
                 </div>
-                <Divider type="vertical"/>
+                <Divider type="vertical" style={{background:'white',margin:'0 14px'}}/>
                 <div className="shippingCar">
                     <ShoppingCartOutlined style={{fontSize:"24px"}}/> <b>(0) items</b>
                 </div>
-                <Divider type="vertical"/>
+                <Divider type="vertical" style={{background:'white',margin:'0 14px'}}/>
                 <div className="language">
                     <TranslationOutlined style={{fontSize:"20px"}}/>
                 </div>

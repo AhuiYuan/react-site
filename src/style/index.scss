@@ -1,6 +1,8 @@
+@import "commen";
 .headerComp {
   padding: 20px 40px;
-  background: rgba(0, 0, 0, .1);
+  background: #333;
+  color: white;
   .logo {
     img {
       width: 160px;
@@ -15,38 +17,247 @@
     }
   }
 }
-.CarouselBox {
-  img {
-    width: 100%;
-    height: 500px;
-  }
-}
-.cardList {
-  margin-top: 20px;
-  .ant-card {
-    box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
-    0 3px 6px 0px rgba(0, 0, 0, 0.12),
-    0 5px 12px 4px rgba(0, 0, 0, 0.09);
-  }
-  .ant-card-body {
-    padding: 0;
-    border-radius: 5px;
-    overflow: hidden;
-  }
+.homePage{
 
-  .card-text {
-    height: 115px;
-    padding: 20px;
-
-    p {
-      font-weight: bold;
-      font-size: 16px;
-      margin-bottom: 14px;
+  .pro-categorize-list{
+    .ant-card{
+      background: #333;
+      padding: 15px 0;
     }
   }
-  img {
-    width: 100%;
-    height: 70px;
-    display: block;
+  .pro-category-list{
+    .allBtn{
+      font-size: 16px;
+      color: white;
+      font-weight: bold;
+      padding: 0 20px;
+      line-height: 38px;
+      span{
+        font-size: 13px;
+        color: #40a9ff;
+        display: inline-block;
+        margin-left: 8px;
+      }
+    }
+    dl.active{
+      border-left: 4px solid #40a9ff;
+      background: white;
+      a{
+        color: #40a9ff;
+      }
+    }
+    dt {
+      a{
+        color: white;
+        display: block;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 32px;
+        overflow: hidden;
+        padding: 0 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    dd {
+      height: 500px;
+      position: absolute;
+      width: 780px;
+      top: 0;
+      left: 250px;
+      overflow-y: auto;
+      z-index: 998;
+      padding: 5px;
+      background: #FAFCFF;
+      box-shadow: var(--el-box-shadow-light);
+    }
+    li {
+      line-height: 35px;
+      float: left;
+      width: 48%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &:nth-child(2n-1) {
+        margin-right: 4%;
+      }
+      a {
+        width: 100%;
+        padding-left: 20px;
+        color: #181818;
+        border-radius: 5px;
+        &:hover {
+          color: #409EFF;
+          text-decoration: underline;
+        }
+      }
+    }
+
+  }
+  .CarouselBox {
+    img {
+      width: 100%;
+      height: 500px;
+    }
+  }
+  .cardList {
+    margin-top: 20px;
+    .ant-card-body {
+      padding: 0;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .card-text {
+      height: 145px;
+      padding: 20px;
+
+      p {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 14px;
+      }
+    }
+    img {
+      width: 100%;
+      height: 70px;
+      display: block;
+    }
+  }
+  .HProCarousel ,.brandList{
+    margin-top: 40px;
+    h2{
+      margin-bottom: 20px;
+      border-left: 5px solid #40a9ff;
+      padding-left: 20px;
+      line-height: 20px;
+    }
+  }
+  .HProCarousel{
+    .list01,.list02{
+      border: $border-1;
+      border-radius: 4px;
+      padding: 10px;
+      .pro-info{
+        span{
+          display: block;
+        }
+      }
+    }
+    .list01{
+      display: flex;
+      .pro-img{
+        margin-right: 10px;
+        img {
+          width: 100px;
+          height: 100px;
+          padding: 16px;
+        }
+      }
+      .pro-info{
+        p{
+          margin-top: 10px;
+          font-weight: bold;
+        }
+        span{
+          line-height: 14px;
+        }
+      }
+    }
+    .list02{
+      .pro-img{
+        img {
+          width: 100%;
+          height: 140px;
+          padding: 20px;
+        }
+      }
+      .pro-info{
+        p{
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .brandList{
+    img{
+      padding: 10px;
+      width: 100%;
+      height: 60px;
+      border: 2px solid #D9D9D9FF;
+      border-radius: 4px;
+    }
+  }
+  .cardItem{
+    margin-top: 40px;
+    .ant-card{
+      background-image: linear-gradient(25deg, #0034d2, #525de1, #7886f0, #97b1ff);
+      color:#fff;
+      b{
+        font-size: 18px;
+      }
+      p{
+        margin: 20px 0;
+      }
+      .ant-btn{
+        width: 130px;
+      }
+    }
+  }
+  .pro-systematics{
+    background: #858585;
+    padding: 30px;
+    margin-top: 40px;
+    img{
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      border-radius: 50%;
+      background: white;
+    }
+    p{
+      color: white;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  }
+}
+
+.footerComp{
+  background: #000;
+  padding: 40px 0;
+  color: white;
+  .ant-col{
+    p{
+      margin-bottom: 6px;
+    }
+    img{
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    li{
+      line-height: 30px;
+    }
+  }
+  .copyRight{
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #D9D9D9;
+    display: flex;
+    align-items: center;
+    p{
+      width: 70%;
+    }
+    .img-items{
+      float: right;
+      width: 30%;
+      text-align: right;
+      img{
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+      }
+    }
   }
 }
