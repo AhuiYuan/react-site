@@ -31,8 +31,8 @@ const items: MenuProps['items'] = [
 
     },
     {
-        label: <Link to={'/about'}>Manufacturers</Link>,
-        key: '/about',
+        label: <Link to={'/manufacturers'}>Manufacturers</Link>,
+        key: '/manufacturers',
     },
 
 ];

@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import {Row,Col,Card,Button} from 'antd'
 
 /*组件*/
-import Carousel from "../component/carousel";
-import HProCarousel from "../component/HproCarousel";
+import Carousel from "../component/index/carousel";
+import HProCarousel from "../component/index/HproCarousel";
 import apiClient from "../serve/request";
 
 

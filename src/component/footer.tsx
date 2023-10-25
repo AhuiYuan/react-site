@@ -1,18 +1,33 @@
 import React, {useEffect, useState} from "react";
 import {Row,Col} from 'antd';
 import apiClient from "../serve/request";
-interface navListData {
-    data:[]
+interface state{
     LastColumn:[]
-    head:[]
+    head: {
+        address: string;
+        copyright: string;
+        icp: string;
+        service_email: string;
+        service_phone: string;
+    }
 }
 const FooterNav=()=>{
-    const [navList,setNavList]=useState<navListData[]>([])
+    const [navList,setNavList]=useState<state["LastColumn"]>([])
+    const [footerList, setFooterList] = useState<state["head"]>({
+        address: "",
+        copyright: "",
+        icp: "",
+        service_email: "",
+        service_phone: "",
+
+    });
     useEffect(() => {
         // 发起 GET 请求
-        apiClient.get<navListData>('/config')
+        apiClient.get<state>('/config')
             .then(response => {
-                setNavList(response.LastColumn)
+                console.log(response)
+                setFooterList(response.head);
+                setNavList(response.LastColumn);
             })
             .catch(error => {
                 console.error(error);
@@ -22,9 +37,9 @@ const FooterNav=()=>{
         <>
             <Row gutter={20}>
                 <Col span={10}>
-                    <p>Shenzhen,Futian District, No.3018 Shennan Avenue,Bank of Communications Building,20F.</p>
-                    <p>+852-30533019</p>
-                    <p>dasenic@dasenic.com</p>
+                    <p>{footerList.address}</p>
+                    <p>{footerList.service_phone}</p>
+                    <p>{footerList.service_email}</p>
                     <div style={{marginTop:'20px'}}>
                         <img src="/img/linkedin.png" alt=""/>
                         <img src="/img/youtube.png" alt=""/>
@@ -47,7 +62,7 @@ const FooterNav=()=>{
                 ))}
             </Row>
             <div className='copyRight'>
-                <p>Copyright© 2023 Shenzhen Dasenic Electronics Limited. 粤ICP备2022048691号</p>
+                <p>{footerList.copyright}{footerList.icp}</p>
                 <div className='img-items'>
                     <img src="/img/mastercard.png" alt=""/>
                     <img src="/img/paypal.png" alt=""/>

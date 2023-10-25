@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'antd';
-import '../style/index.scss'
+import '../../style/index.scss'
 
 const App: React.FC = () => (
     <Carousel autoplay>

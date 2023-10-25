@@ -2,7 +2,7 @@ import React  from 'react';
 import { Route, Routes} from 'react-router-dom';
 import { Affix,FloatButton } from 'antd'
 import Home from "./pages/home";
-import About from "./pages/about";
+import About from "./pages/menufacturers";
 import Product from "./pages/product";
 import Header from "./component/header";
 import Footer from "./component/footer";
@@ -21,7 +21,7 @@ const App = () => {
               <Routes>
                   <Route path='/' Component={Home} />
                   <Route  path='/product' Component={Product} />
-                  <Route  path='/about' Component={About} />
+                  <Route  path='/manufacturers' Component={About} />
               </Routes>
           </div>
           <div className="footerComp">
