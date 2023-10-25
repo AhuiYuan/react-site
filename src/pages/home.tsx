@@ -1,31 +1,35 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Row,Col,Card,Button} from 'antd'
-import {Tooltip} from "antd";
 
 /*组件*/
 import Carousel from "../component/carousel";
 import HProCarousel from "../component/HproCarousel";
+import apiClient from "../serve/request";
+
 
 const cardItems=[
     {
+        id:0,
         img:'/img/index01.jpg',
         title:'Souring',
         description:'Dasenic\'s strong supply chain services help solve global customers\' demand for electronic components and ensure timely components supply.'
     },
     {
+        id:1,
         img:'/img/index02.png',
         title:'Technical Support',
         description:'Alternative parts will be suggested by our experienced engineers, and help solve some technical issues.'
     },
     {
+        id:2,
         img:'/img/index03.jpg',
         title:'Quality Inspection',
         description:'We conduct strict quality inspections in our test room to ensure that only new and original parts are offered and meet the product quality standards.'
     }
 ]
 const ListItems=()=>{
-    const listItems = cardItems.map((cardItems,key) =>
-        <Col span={8} key={key}>
+    const listItems = cardItems.map((cardItems,index) =>
+        <Col span={8}  key={index}>
             <Card>
                 <div>
                     <img src={cardItems.img} alt=""/>
@@ -35,48 +39,57 @@ const ListItems=()=>{
                     <span>{cardItems.description}</span>
                 </div>
             </Card>
-
         </Col>
     );
     return <Row gutter={20}>{listItems}</Row>
 }
-
-
+interface categoryListDate {
+    head:[];
+    cate:[];
+    title: string;
+    web_url: string;
+    categoryList:[];
+    category_id: number;
+}
 const Item=()=>{
-    const data = [
-        { title: "Title 1", content: "Content 1" },
-        { title: "Title 2", content: "Content 2" },
-        { title: "Title 3", content: "Content 3" },
-    ];
+
     const [activeIndex, setActiveIndex] = useState(-1);
+    const [CategoryDate, setCategoryDate] = useState<categoryListDate[]>([]); // 用于保存请求的用户数据
+    useEffect(() => {
+        // 发起 GET 请求
+        apiClient.get<categoryListDate>('/config')
+            .then(response => {
+                //console.log(response)
+                setCategoryDate(response.cate)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
     return <div className='ant-card'>
         <div className="pro-category-list" onMouseLeave={() => setActiveIndex(-1)}>
-            <a className="allBtn">PRODUCTS <span>View All</span></a>
-            {data.map((item, index) => (
-                <React.Fragment key={index}>
-                    <dl className={activeIndex===index?"active":''}>
-                        <dt
-                            onMouseEnter={() => setActiveIndex(index)}
-                        >
-                            <a href="">{item.title}</a>
+            <a className="allBtn" href='/'>PRODUCTS <span>View All</span></a>
+            {CategoryDate.map((row, rowIndex) => (
+                <div key={rowIndex}>
+                    <dl className={activeIndex===rowIndex?"active":''}>
+                        <dt onMouseEnter={() => setActiveIndex(rowIndex)} >
+                            <a href={row.web_url}>{row.title}</a>
                         </dt>
                     </dl>
-                    {activeIndex === index && (
+                    {activeIndex === rowIndex && (
                         <dd onMouseLeave={() => setActiveIndex(-1)}>
                             <ul>
-                                <li><a>{item.content}</a></li>
+                                {row.categoryList.map((items:any,index)=>(
+                                    <li key={index}><a href={items.web_url}>{items.title}</a></li>
+                                ))}
                             </ul>
                         </dd>
                     )}
-                </React.Fragment>
+                </div>
             ))}
         </div>
     </div>
 }
-
-
-
-
 
 const App:React.FC=()=>{
     return (
@@ -119,7 +132,7 @@ const App:React.FC=()=>{
                                 <Button size={"large"} >Get Quote </Button>
                             </Card>
                         </Col>
-                        <Col span={12} key={0}>
+                        <Col span={12} key={1}>
                             <Card>
                                 <b>Component Shortage?</b>
                                 <p>With a large in-stock inventory and extensive market contacts, in most cases when your suppliers are unable to provide the components you need for your project, we can.</p>

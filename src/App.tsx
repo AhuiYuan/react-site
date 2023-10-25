@@ -1,4 +1,4 @@
-import  React from 'react';
+import React  from 'react';
 import { Route, Routes} from 'react-router-dom';
 import { Affix,FloatButton } from 'antd'
 import Home from "./pages/home";
@@ -8,12 +8,12 @@ import Header from "./component/header";
 import Footer from "./component/footer";
 import './App.css';
 const App = () => {
-    const [top, setTop] = React.useState<number>(0);
-  return (
+    const [top] = React.useState<number>(0);
+
+    return (
       <div className="App">
           <Affix offsetTop={top}>
           <div className="headerComp">
-
               <Header/>
           </div>
           </Affix>
