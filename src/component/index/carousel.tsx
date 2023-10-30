@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Carousel} from 'antd';
 import '../../style/index.scss'
-import {useLocation} from "react-router-dom";
 import apiClient from "../../serve/request";
 
 interface headNavList {
