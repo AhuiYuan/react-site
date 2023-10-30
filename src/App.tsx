@@ -2,10 +2,12 @@ import React  from 'react';
 import { Route, Routes} from 'react-router-dom';
 import { Affix,FloatButton } from 'antd'
 import Home from "./pages/home";
-import About from "./pages/menufacturers";
-import Product from "./pages/product";
 import Header from "./component/header";
 import Footer from "./component/footer";
+import menufacturers from "./pages/menufacturers";
+import Product from "./pages/product";
+import Bom from "./pages/other/bom";
+import Rfqs from "./pages/other/rfqs"
 import './App.css';
 const App = () => {
     const [top] = React.useState<number>(0);
@@ -20,8 +22,10 @@ const App = () => {
           <div className="content">
               <Routes>
                   <Route path='/' Component={Home} />
-                  <Route  path='/product' Component={Product} />
-                  <Route  path='/manufacturers' Component={About} />
+                  <Route path='/product' Component={Product} />
+                  <Route path='/manufacturers' Component={menufacturers} />
+                  <Route path='/other/bom' Component={Bom} />
+                  <Route path='/other/rfqs' Component={Rfqs} />
               </Routes>
           </div>
           <div className="footerComp">

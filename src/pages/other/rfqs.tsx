@@ -3,7 +3,7 @@ import React from "react"
 const App: React.FC = () =>(
     <div className='manufacturersPage'>
         <div className='wrap-content'>
-            <p>manufacturers 页面1</p>
+            <p>manufacturers 页面</p>
         </div>
     </div>
 

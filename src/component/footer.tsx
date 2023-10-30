@@ -25,7 +25,6 @@ const FooterNav=()=>{
         // 发起 GET 请求
         apiClient.get<state>('/config')
             .then(response => {
-                console.log(response)
                 setFooterList(response.head);
                 setNavList(response.LastColumn);
             })
