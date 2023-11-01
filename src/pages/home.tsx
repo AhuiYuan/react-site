@@ -7,42 +7,7 @@ import HProCarousel from "../component/index/HproCarousel";
 import apiClient from "../serve/request";
 
 
-const cardItems=[
-    {
-        id:0,
-        img:'/img/index01.jpg',
-        title:'Souring',
-        description:'Dasenic\'s strong supply chain services help solve global customers\' demand for electronic components and ensure timely components supply.'
-    },
-    {
-        id:1,
-        img:'/img/index02.png',
-        title:'Technical Support',
-        description:'Alternative parts will be suggested by our experienced engineers, and help solve some technical issues.'
-    },
-    {
-        id:2,
-        img:'/img/index03.jpg',
-        title:'Quality Inspection',
-        description:'We conduct strict quality inspections in our test room to ensure that only new and original parts are offered and meet the product quality standards.'
-    }
-]
-const ListItems=()=>{
-    const listItems = cardItems.map((cardItems,index) =>
-        <Col span={8}  key={index}>
-            <Card>
-                <div>
-                    <img src={cardItems.img} alt=""/>
-                </div>
-                <div className="card-text">
-                    <p>{cardItems.title}</p>
-                    <span>{cardItems.description}</span>
-                </div>
-            </Card>
-        </Col>
-    );
-    return <Row gutter={20}>{listItems}</Row>
-}
+/*分类列表*/
 interface categoryListDate {
     head:[];
     cate:[];
@@ -51,8 +16,11 @@ interface categoryListDate {
     categoryList:[];
     category_id: number;
 }
-const Item=()=>{
-
+interface brandState{
+    image: string;
+    brand:[]
+}
+const CategoryItem=()=>{
     const [activeIndex, setActiveIndex] = useState(-1);
     const [CategoryDate, setCategoryDate] = useState<categoryListDate[]>([]); // 用于保存请求的用户数据
     useEffect(() => {
@@ -90,6 +58,115 @@ const Item=()=>{
         </div>
     </div>
 }
+/*卡片列表*/
+const cardItems=[
+    {
+        id:0,
+        img:'/img/index01.jpg',
+        title:'Souring',
+        description:'Dasenic\'s strong supply chain services help solve global customers\' demand for electronic components and ensure timely components supply.'
+    },
+    {
+        id:1,
+        img:'/img/index02.png',
+        title:'Technical Support',
+        description:'Alternative parts will be suggested by our experienced engineers, and help solve some technical issues.'
+    },
+    {
+        id:2,
+        img:'/img/index03.jpg',
+        title:'Quality Inspection',
+        description:'We conduct strict quality inspections in our test room to ensure that only new and original parts are offered and meet the product quality standards.'
+    }
+]
+const ListItems=()=>{
+    const listItems = cardItems.map((cardItems,index) =>
+        <Col span={8}  key={index}>
+            <Card>
+                <div>
+                    <img src={cardItems.img} alt=""/>
+                </div>
+                <div className="card-text">
+                    <p>{cardItems.title}</p>
+                    <span>{cardItems.description}</span>
+                </div>
+            </Card>
+        </Col>
+    );
+    return <Row gutter={20}>{listItems}</Row>
+}
+/*品牌列表*/
+const  BrandList=()=>{
+    const [brandData,setBrandData]=useState<brandState[]>([])
+    useEffect(() => {
+        // 发起 GET 请求
+        apiClient.get<brandState>('')
+            .then(response => {
+                console.log(response)
+                setBrandData(response.brand)
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+    return <>
+        <h2>Featured Manufacturers</h2>
+        <Row gutter={20} justify="center">
+            {brandData.map((item,index)=>(
+                <Col key={index} span={3}><img src={item.image} alt=""/></Col>
+            ))}
+
+        </Row>
+    </>
+}
+/*底部分类列表*/
+const BotListData=[
+    {
+        img:"/img/type01.png",
+        title:"Potentiometers",
+        url:""
+    },
+    {
+        img:"/img/type02.png",
+        title:"Relays",
+        url:""
+    },
+    {
+        img:"/img/type03.png",
+        title:"Sensors",
+        url:""
+    },
+    {
+        img:"/img/type04.png",
+        title:"RF&FRID",
+        url:""
+    },
+    {
+        img:"/img/type05.png",
+        title:"Transformers",
+        url:""
+    },
+    {
+        img:"/img/type06.png",
+        title:"Resistors",
+        url:""
+    },
+    {
+        img:"/img/type07.png",
+        title:"Oscillatorsa",
+        url:""
+    }
+]
+const BotList=()=>{
+    const listItems = BotListData.map((item,index) =>
+        <Col span={3} style={{textAlign:'center'}}>
+            <img src={item.img} alt=""/>
+            <p>{item.title}</p>
+        </Col>
+    );
+    return  <Row gutter={40} justify="center">{listItems}</Row>
+}
+
 
 const App:React.FC=()=>{
     return (
@@ -97,7 +174,7 @@ const App:React.FC=()=>{
             <div className="wrap-content">
                 <Row>
                     <Col span={5} className='pro-categorize-list'>
-                        <Item></Item>
+                        <CategoryItem/>
                     </Col>
                     <Col span={19}>
                         <Carousel/>
@@ -107,21 +184,10 @@ const App:React.FC=()=>{
                     <ListItems/>
                 </div>
                 <div className="HProCarousel">
-                    <h2>Trending Products</h2>
                     <HProCarousel/>
                 </div>
                 <div className='brandList'>
-                    <h2>Featured Manufacturers</h2>
-                    <Row gutter={20} justify="center">
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                        <Col span={3}><img src="/img/pro-band.png" alt=""/></Col>
-                    </Row>
+                    <BrandList/>
                 </div>
                 <div className='cardItem'>
                     <Row gutter={40}>
@@ -144,36 +210,7 @@ const App:React.FC=()=>{
             </div>
             <div className='pro-systematics'>
                 <div className='wrap-content'>
-                    <Row gutter={20} justify="center">
-                        <Col span={3}>
-                            <img src="/img/type01.png" alt=""/>
-                            <p>Potentiometers</p>
-                        </Col>
-                        <Col span={3}>
-                            <img src="/img/type02.png" alt=""/>
-                            <p>Potentiometers</p>
-                        </Col>
-                        <Col span={3}>
-                            <img src="/img/type03.png" alt=""/>
-                            <p>Potentiometers</p>
-                        </Col>
-                        <Col span={3}>
-                            <img src="/img/type04.png" alt=""/>
-                            <p>Potentiometers</p>
-                        </Col>
-                        <Col span={3}>
-                            <img src="/img/type05.png" alt=""/>
-                            <p>Potentiometers</p>
-                        </Col>
-                        <Col span={3}>
-                            <img src="/img/type06.png" alt=""/>
-                            <p>Potentiometers</p>
-                        </Col>
-                        <Col span={3}>
-                            <img src="/img/type07.png" alt=""/>
-                            <p>Potentiometers</p>
-                        </Col>
-                    </Row>
+                    <BotList/>
                 </div>
             </div>
         </div>

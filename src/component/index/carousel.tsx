@@ -14,7 +14,6 @@ const App: React.FC = () => {
         // 发起 GET 请求
         apiClient.get<headNavList>('')
             .then(response => {
-                console.log(response)
                 setHeadNav(response.headNav)
             })
             .catch(error => {
