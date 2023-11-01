@@ -6,7 +6,6 @@ import Carousel from "../component/index/carousel";
 import HProCarousel from "../component/index/HproCarousel";
 import apiClient from "../serve/request";
 
-
 /*分类列表*/
 interface categoryListDate {
     head:[];
