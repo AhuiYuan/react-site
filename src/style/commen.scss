@@ -5,3 +5,30 @@ $border-1: 1px solid #D9D9D9FF;
   0 5px 12px 4px rgba(0, 0, 0, 0.09);
   border: none;
 }
+.no-wrap {
+  white-space:nowrap;
+  overflow:hidden;
+  display: inline-block;
+  text-overflow:ellipsis;
+}
+.no-wrap2 {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.no-wrap3 {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.no-wrap4 {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}

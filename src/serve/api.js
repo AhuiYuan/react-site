@@ -3,7 +3,7 @@ import {message} from 'antd';
 const api_name = "/api/v1";
 /*创建一个 Axios 实例，并进行基本的配置，例如设置基本 URL 和超时时间*/
 const api = axios.create({
-    baseURL: 'https://api.dasenic.com'+api_name,
+    baseURL: 'https://test.dasenic.com'+api_name,
     timeout: 5000,
 });
 

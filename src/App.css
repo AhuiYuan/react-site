@@ -7,11 +7,14 @@
     box-sizing: border-box;
     outline: none!important;
 }
+ul{
+    overflow: hidden;
+}
 li{
     list-style: none;
 }
-.content{
-    margin-top: 20px;
+a{
+    color: #181818;
 }
 .wrap-content{
     width: 1200px;
