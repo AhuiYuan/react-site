@@ -16,7 +16,10 @@ li{
 a{
     color: #181818;
 }
+body{
+    background-color: #f0f1f2;
+}
 .wrap-content{
-    width: 1200px;
+    width: 1400px;
     margin: 0 auto;
 }

@@ -33,7 +33,7 @@ const CategoryItem=()=>{
                 console.error(error);
             });
     }, []);
-    return <div className='ant-card'>
+    return <div className='category-list-box'>
         <div className="pro-category-list" onMouseLeave={() => setActiveIndex(-1)}>
             <a className="allBtn" href='/'>PRODUCTS <span>View All</span></a>
             {CategoryDate.map((row, rowIndex) => (
@@ -81,21 +81,86 @@ const cardItems=[
 const ListItems=()=>{
     const listItems = cardItems.map((cardItems,index) =>
         <Col span={8}  key={index}>
-            <Card>
-                <div>
-                    <img src={cardItems.img} alt=""/>
-                </div>
-                <div className="card-text">
-                    <p>{cardItems.title}</p>
-                    <span>{cardItems.description}</span>
-                </div>
-            </Card>
+            <div>
+                <img src={cardItems.img} alt=""/>
+            </div>
+            <div className="card-text">
+                <p>{cardItems.title}</p>
+                <span>{cardItems.description}</span>
+            </div>
         </Col>
     );
     return <Row gutter={20}>{listItems}</Row>
 }
 /*品牌列表*/
-const  BrandList=()=>{
+const BrandData=[
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+    {
+        img:'/img/brand.png',
+    },
+
+]
+const BrandList=()=>{
+    const listItems = BrandData.map((item,index) =>
+        <Col span={4} style={{textAlign:'center'}} key={index}>
+            <img src={item.img} alt=""/>
+        </Col>
+    );
+    return <Row>
+            {listItems}
+        </Row>
+}
+/*const  BrandList=()=>{
     const [brandData,setBrandData]=useState<brandState[]>([])
     useEffect(() => {
         // 发起 GET 请求
@@ -109,7 +174,7 @@ const  BrandList=()=>{
             });
     }, []);
     return <>
-        <h2>Featured Manufacturers</h2>
+
         <Row gutter={20} justify="center">
             {brandData.map((item,index)=>(
                 <Col key={index} span={3}><img src={item.image} alt=""/></Col>
@@ -117,7 +182,7 @@ const  BrandList=()=>{
 
         </Row>
     </>
-}
+}*/
 /*底部分类列表*/
 const BotListData=[
     {
@@ -158,15 +223,100 @@ const BotListData=[
 ]
 const BotList=()=>{
     const listItems = BotListData.map((item,index) =>
-        <Col span={3} style={{textAlign:'center'}}>
+        <Col span={3} style={{textAlign:'center'}} key={index}>
             <img src={item.img} alt=""/>
             <p>{item.title}</p>
         </Col>
     );
-    return  <Row gutter={40} justify="center">{listItems}</Row>
+    return <div>
+        <Row>
+            <Col span={5} className="left">
+                <div className="ta-c">
+                    <h2>BastSellers Products</h2>
+                    <Button size={"large"} type="primary">View More</Button>
+                </div>
+            </Col>
+            <Col span={19} className="right">
+                <Row gutter={50} justify="center">{listItems}</Row>
+            </Col>
+        </Row>
+
+    </div>
+
 }
 
+/*BastSellers Products*/
+const bestData=[
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    },
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    },
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    },
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    },
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    },
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    },
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    },
+    {
+        img:"/img/type07.png",
+        mpn:"Oscillatorsa",
+        brand:"ON Semiconductor"
+    }
+]
+const BestList=()=>{
+    const listItems = bestData.map((item,index) =>
+        <Col key={index} span={6}>
+            <div className="ta-c">
+                <img src="/img/type02.png" alt=""/>
+                <p>{item.mpn}</p>
+                <span>{item.brand}</span>
+            </div>
+        </Col>
 
+    );
+    return  <div className="bastProducts">
+                <Row>
+                    <Col span={5}  className="left">
+                        <div className="ta-c">
+                            <h2>BastSellers Products</h2>
+                            <Button size={"large"} type="primary">View More</Button>
+                            <img src="/img/type06.png" alt=""/>
+                        </div>
+                    </Col>
+                    <Col span={19}  className="right">
+                        <Row>
+                            {listItems}
+                        </Row>
+                    </Col>
+
+                </Row>
+        </div>
+}
 const App:React.FC=()=>{
     return (
         <div className='homePage'>
@@ -185,9 +335,13 @@ const App:React.FC=()=>{
                 <div className="HProCarousel">
                     <HProCarousel/>
                 </div>
+                <div className="advertise"><img src="/img/advertise.jpg" alt=""/></div>
+                <BestList/>
+                <div className="pro-systematics"><BotList/></div>
                 <div className='brandList'>
                     <BrandList/>
                 </div>
+
                 <div className='cardItem'>
                     <Row gutter={40}>
                         <Col span={12} key={0}>
@@ -206,11 +360,7 @@ const App:React.FC=()=>{
                         </Col>
                     </Row>
                 </div>
-            </div>
-            <div className='pro-systematics'>
-                <div className='wrap-content'>
-                    <BotList/>
-                </div>
+                {/*<div className="advertise"><img src="/img/banner-sts.jpg" alt=""/></div>*/}
             </div>
         </div>
 

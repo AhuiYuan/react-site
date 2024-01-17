@@ -32,12 +32,12 @@ const App: React.FC = () => {
         borderBottom:'none',
     };
     return (
-        <Menu theme="dark" selectedKeys={[location.pathname]} mode="horizontal" style={{borderBottom:"none",background:"none"}}>
-            <SubMenu key={0} title={ <span><MenuOutlined style={{paddingRight:"5px"}}/>All Departments</span> }>
+        <Menu selectedKeys={[location.pathname]} mode="horizontal" style={{borderBottom:"none",background:"none"}}>
+            <SubMenu key={0} title={ <span style={{fontWeight:"bold"}}><MenuOutlined style={{paddingRight:"5px"}}/>All Departments</span> }>
                 <Menu.ItemGroup title="Item 1"></Menu.ItemGroup>
             </SubMenu>
             {headNav.map((ele,idx)=>(
-                <Menu.Item key={ele.url}>
+                <Menu.Item key={ele.url} className="menu-item">
                     <Link to={ele.url} key={idx}>{ele.title}</Link>
                 </Menu.Item>
             ))}

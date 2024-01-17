@@ -30,17 +30,24 @@ const App: React.FC = () => {
                                 <Col key={subIndex} span={8}>
                                     <div className='item-list'>
                                         <div className='list01'>
-                                            <div className='pro-img'><img src="/img/type01.png" alt=""/></div>
-                                            <div className='pro-info'>
-                                                <h3>{item[0].mpn}</h3>
-                                                <span>{item[0].intro}</span>
-                                                <p>USD$ {item[0].unit_price}</p>
-                                                <span>{item[0].title}</span>
-                                            </div>
+                                            <Row gutter={10}>
+                                                <Col span={6}><div className='pro-img'><img src="/img/type01.png" alt=""/></div></Col>
+                                                <Col span={18}>
+                                                    <div className='pro-info'>
+                                                        <h3>{item[0].mpn}</h3>
+                                                        <span className='no-wrap'>{item[0].intro}</span>
+                                                        <p>USD$ {item[0].unit_price}</p>
+                                                        <span>{item[0].title}</span>
+                                                    </div>
+                                                </Col>
+                                            </Row>
+
+
                                         </div>
                                         <Row gutter={10} style={{marginTop: '10px'}}>
                                             <Col span={12}>
                                                 <div className='list02'>
+
                                                     <div className='pro-img'><img src="/img/type01.png" alt=""/></div>
                                                     <div className='pro-info'>
                                                         <span>{item[1].title}</span>

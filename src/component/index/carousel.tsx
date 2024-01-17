@@ -21,7 +21,7 @@ const App: React.FC = () => {
             });
     }, []);
     return (
-        <Carousel autoplay >
+        <Carousel autoplay className='CarouselBox'>
             {headNav.map((item,index)=>(
                 <div key={index}>
                     <a href={item.url}><img src={item.image} alt=""/></a>

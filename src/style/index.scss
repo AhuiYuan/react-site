@@ -1,27 +1,75 @@
 @import "commen";
 .headerComp {
-  padding: 20px 40px;
-  background: #333;
-  color: white;
-  .logo {
-    img {
-      width: 160px;
-      height: 40px;
+  .topBar{
+    padding: 5px 0;
+    background-image: linear-gradient(to right , #002584,#1e5dc7,#022d9c, #1246ce,#002584);
+    p{
+      color: white;
+    }
+    .topBar-right{
+      display: flex;
+      justify-content: right;
+      align-items: center;
+    }
+    .login, .shippingCar, .language {
+      display: flex;
+      align-items: center;
+      color: white;
+      b {
+        margin-left: 10px;
+      }
     }
   }
-  .login, .shippingCar, .language {
-    display: flex;
-    align-items: center;
-    b {
-      margin-left: 10px;
+  .topMenu{
+    padding: 20px 0 0;
+    background: #fff;
+    .menu-item{
+      padding: 0 30px;
+      font-weight: bold;
+    }
+  }
+  .logo {
+    img {
+      width: 230px;
+      height: 60px;
     }
   }
 }
 .homePage{
-  margin-top: 20px;
+  margin: 15px 0;
+  .advertise{
+    margin-top: 15px;
+    img{
+      width: 100%;
+      display: block;
+    }
+  }
+  .bastProducts{
+    margin-top: 15px;
+    .left{
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D9E2F1), to(#ffffff));
+      padding: 20px;
+      button{
+        margin-top: 20px;
+      }
+      img{width: 100%;display: block}
+    }
+    .right{
+      background: #fff;
+      .ta-c{
+        padding: 20px;
+        img{
+          width: 100px;
+        }
+      }
+    }
+
+
+  }
   .pro-categorize-list{
-    .ant-card{
-      background: #333;
+    .category-list-box{
+      border: 1px solid #f5f5f5;
+      background: #fff;
       padding: 15px 0;
       height: 500px;
     }
@@ -29,7 +77,6 @@
   .pro-category-list{
     .allBtn{
       font-size: 16px;
-      color: white;
       font-weight: bold;
       padding: 0 20px;
       line-height: 38px;
@@ -42,14 +89,13 @@
     }
     dl.active{
       border-left: 4px solid #40a9ff;
-      background: white;
+      background: #f5f5f5;
       a{
         color: #40a9ff;
       }
     }
     dt {
       a{
-        color: white;
         display: block;
         font-size: 13px;
         font-weight: bold;
@@ -65,12 +111,11 @@
       position: absolute;
       width: 780px;
       top: 0;
-      left: 250px;
-      overflow-y: auto;
+      left: 290px;
       z-index: 998;
       padding: 5px;
-      background: #FAFCFF;
-      box-shadow: var(--el-box-shadow-light);
+      background: #fff;
+      box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0px rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
     }
     li {
       line-height: 35px;
@@ -84,6 +129,7 @@
       }
       a {
         width: 100%;
+        display: block;
         padding-left: 20px;
         color: #181818;
         border-radius: 5px;
@@ -102,16 +148,12 @@
     }
   }
   .cardList {
-    margin-top: 20px;
-    .ant-card-body {
-      padding: 0;
-      border-radius: 5px;
-      overflow: hidden;
-    }
+    margin-top: 15px;
+
     .card-text {
       height: 145px;
       padding: 20px;
-
+      background: #fff;
       p {
         font-weight: bold;
         font-size: 16px;
@@ -125,15 +167,14 @@
     }
   }
   .HProCarousel ,.brandList{
-    margin-top: 40px;
-    h2{
-      margin-bottom: 20px;
-      border-left: 5px solid #40a9ff;
-      padding-left: 20px;
-      line-height: 20px;
-    }
+    margin-top: 15px;
   }
   .HProCarousel{
+    background: #fff;
+    padding: 20px;
+    h2{
+      margin-bottom: 15px;
+    }
     .list01,.list02{
       border: $border-1;
       border-radius: 4px;
@@ -145,7 +186,6 @@
       }
     }
     .list01{
-      display: flex;
       .pro-img{
         margin-right: 10px;
         img {
@@ -168,8 +208,8 @@
       .pro-img{
         img {
           width: 100%;
-          height: 140px;
-          padding: 20px;
+          height: 146px;
+          padding: 0 20px;
         }
       }
       .pro-info{
@@ -180,16 +220,16 @@
     }
   }
   .brandList{
+    padding: 30px;
+    background: #fff;
     img{
-      padding: 10px;
-      width: 100%;
-      height: 60px;
-      border: 2px solid #D9D9D9FF;
-      border-radius: 4px;
+      padding: 20px;
+      width: 70%;
+      height: 80px;
     }
   }
   .cardItem{
-    margin-top: 40px;
+    margin-top: 15px;
     .ant-card{
       background-image: linear-gradient(25deg, #262626, #424242, #1b72cc, #409EFF);
       color:#fff;
@@ -205,21 +245,34 @@
     }
   }
   .pro-systematics{
-    background: #858585;
-    padding: 30px;
-    margin-top: 40px;
-    img{
-      width: 100px;
-      height: 100px;
-      padding: 10px;
-      border-radius: 50%;
-      background: white;
+    margin-top: 15px;
+    .left{
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D9E2F1), to(#ffffff));
+      padding: 20px;
+      text-align: center;
+      h2{
+        margin-top: 20px;
+      }
+      button{
+        margin-top: 20px;
+      }
     }
-    p{
-      color: white;
-      margin-top: 10px;
-      font-weight: bold;
+    .right{
+      background: #fff;
+      padding: 20px 0;
+      img{
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border-radius: 50%;
+        background: #efeeee;
+      }
+      p{
+        margin-top: 10px;
+        font-weight: bold;
+      }
     }
+
   }
 }
 .commonPage{
@@ -254,9 +307,16 @@
     padding-left: 20px;
     h3{
       line-height: 45px;
-      background: #e6f7ff;
+      background: #fff;
       padding: 0 10px;
       border-radius: 3px;
+      &:hover{
+        text-decoration: underline;
+        color: #0351FCFF;
+        span{
+          color: #0351FCFF;
+        }
+      }
       span{
         color: #8d8d8d;
       }
@@ -265,14 +325,15 @@
       padding: 10px;
     }
     li{
-      width: 45%;
+      width: 50%;
       float: left;
-      margin-top: 10px;
       a{
         display: block;
         font-weight: 500;
+        padding: 7px 10px;
         &:hover{
           text-decoration: underline;
+          color: #0351FCFF;
           span{
             color: #0351FCFF;
           }
@@ -280,12 +341,6 @@
       }
       span{
         color: #8d8d8d;
-      }
-      &:nth-child(2n-1){
-        margin-right: 5%;
-      }
-      &:nth-child(2n){
-        margin-left: 5%;
       }
     }
   }

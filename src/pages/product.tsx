@@ -53,7 +53,7 @@ const App: React.FC = () => {
                                 <h3>{subArray.title} <span>({subArray.category})</span></h3>
                                 <ul>
                                     {subArray.categoryList.map((item:any,index:number)=>(
-                                        <li key={index}><a href="" className="no-wrap">{item.title}<span>（{item.category}）</span></a></li>
+                                        <li key={index}><a href="">{item.title}<span>（{item.category}）</span></a></li>
                                     ))}
                                 </ul>
                             </div>
